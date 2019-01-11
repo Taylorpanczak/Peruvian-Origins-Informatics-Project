@@ -25,7 +25,7 @@ img {vertical-align: middle;}
 /* Slideshow container */
 .slideshow-container {
   max-width: 500px;
-  position: relative;
+  position: center;
   margin: auto;
 }
 
@@ -177,7 +177,7 @@ function showSlides() {
     slides[i].style.display = "none";  
   }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 2}    
+  if (slideIndex > slides.length) {slideIndex = 1}    
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
