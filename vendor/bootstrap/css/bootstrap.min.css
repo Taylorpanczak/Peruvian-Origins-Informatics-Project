@@ -22,5 +22,20 @@ text-align:right;
 }
 .centered{
 text-align:center;
-}             
+}   
+     #wrapper{
+    background:red;
+    overflow:auto;
+}
+
+#c1{
+   float:left;
+   background:blue;
+}
+
+#c2{
+    background:green;
+    float:right;
+}
+
      /*# sourceMappingURL=bootstrap.min.css.map */
