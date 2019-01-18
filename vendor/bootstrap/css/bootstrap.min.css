@@ -15,19 +15,16 @@
 .left{
 text-align:left;
 float:left;
-position: static;
-bottom: 0px;    
+vertical-align: bottom;   
 }
 .right{
 float:right;
 text-align:right;
-position: static;
-bottom: 0px;
+vertical-align: bottom;
 }
 .centered{
 text-align:center; 
-position: static;
-bottom: 0px;    
+vertical-align: bottom;
 }   
 
      /*# sourceMappingURL=bootstrap.min.css.map */
