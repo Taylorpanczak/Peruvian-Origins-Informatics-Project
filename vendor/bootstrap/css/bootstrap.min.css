@@ -15,30 +15,13 @@
 .left{
 text-align:left;
 float:left;
-bottom: 0px;
 }
 .right{
 float:right;
 text-align:right;
-bottom: 0px;
 }
 .centered{
-text-align:center;
-bottom: 0px;    
+text-align:center;   
 }   
-     #wrapper{
-    background:red;
-    overflow:auto;
-}
-
-#c1{
-   float:left;
-   background:blue;
-}
-
-#c2{
-    background:green;
-    float:right;
-}
 
      /*# sourceMappingURL=bootstrap.min.css.map */
