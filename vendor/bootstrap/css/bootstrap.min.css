@@ -15,13 +15,16 @@
 .left{
 text-align:left;
 float:left;
+bottom: 0px;
 }
 .right{
 float:right;
 text-align:right;
+bottom: 0px;
 }
 .centered{
 text-align:center;
+bottom: 0px;    
 }   
      #wrapper{
     background:red;
