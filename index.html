@@ -55,7 +55,45 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-  
+  <style>
+  body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenavright {
+  height: 1000px;
+  width: 160px;
+  position: absolute;
+  z-index: 1;
+  top: 130;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+
+.sidenavright a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenavright a:absolute {
+  color: #f1f1f1;
+}
+
+.main2 {
+  margin-right: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
@@ -144,6 +182,12 @@ img {vertical-align: middle;}
     <!-- Page Content -->
     <div class="container">
       <div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+      <div class="sidenavright">
   <a href="#about">About</a>
   <a href="#services">Services</a>
   <a href="#clients">Clients</a>
