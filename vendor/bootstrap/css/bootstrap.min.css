@@ -15,18 +15,18 @@
 .left{
 text-align:left;
 float:left;
-position: fixed;
+position: absolute;
 bottom: 0px;    
 }
 .right{
 float:right;
 text-align:right;
-position: fixed;
+position: absolute;
 bottom: 0px;
 }
 .centered{
 text-align:center; 
-position: fixed;
+position: absolute;
 bottom: 0px;    
 }   
 
