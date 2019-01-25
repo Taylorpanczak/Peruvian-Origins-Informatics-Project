@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<title>Women in Science</title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!-- Load Leaflet: instructions at http://leafletjs.com/download.html -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+  integrity="sha384-Zh+y1U8o6/7ni8Mp8szvUfZjGeKKS10CGH3IlD6L1X+XwzYgQ1llOjw/Wslc0cma"
+  crossorigin="anonymous">
+  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+  integrity="sha384-6rCYjRgWDEI2RlZxiVihj1WIZB/uvFiRCGpavTVgFrSPDL0Bk1AiqCW+mmv5h0LP"
+  crossorigin="anonymous"></script>
+  <!-- Load Omnivore plugin to convert CSV to GeoJSON format -->
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+
+  <!-- Position the map and title with Cascading Style Sheet (.css) -->
+  <style>
+  body { margin:0; padding:0; }
+  #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  #map-title { position: relative; margin-top: 10px; margin-left: 50px; float: left; background: white; border: 2px solid rgba(0,0,0,0.2); padding: 6px 8px; font-family: Helvetica; font-weight: bold; font-size: 24px; z-index: 800; }
+  </style>
+</head>
+<body>
+
+  <!-- Display the map and title with HTML division tags  -->
+  <div id="map-title"><font face="garamond">Women in Medical Science<br><a href="https://taylorpanczak.github.io/MemoryMapping3/">ReturnHome</a></font></div>
+  <div id="map"></div>
+
+  <!-- Create the map content with JavaScript (.js) -->
+  <script>
+  /* Set up the map with initial center and zoom level */
+  var map = L.map('map', {
+    center: [48.8566, 2.3522], // EDIT latitude, longitude to re-center map
+    zoom: 6,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+    scrollWheelZoom: false
+  });
+  /* Control panel to display map layers */
+  // var controlLayers = L.control.layers( null, null, {
+  //  position: "topright",
+  //  collapsed: false
+  // }).addTo(map);
+  /* Carto light-gray basemap tiles with labels */
+  var light = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+  }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+  // controlLayers.addBaseLayer(light, 'Carto Light basemap');
+  /* Stamen colored terrain basemap tiles with labels */
+  var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+  }).addTo(map); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+  // controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
+    var houseIcon = L.icon({
+    iconUrl: 'house-01-512.png',
+    iconSize:     [38, 39], // size of the icon
+    iconAnchor:   [38, 39], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var boneIcon = L.icon({
+    iconUrl: 'bone.png',
+    iconSize:     [38, 39], // size of the icon
+    iconAnchor:   [38, 39], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+    var customStoney1 = "<b></b><a href='https://en.wikipedia.org/wiki/Florence_Stoney'>Florence Stoney</a> | Birth Place <br>Florence Stoney was born 7 October 1932 in Dublin, Ireland.<br/><img src='images/dublintown.jpg' alt='test' width='350px'/>" 
+   
+    var customOptions =
+        {
+        'maxWidth': '500',
+        'className' : 'custom'
+        }
+  
+    var customSzumiel1 = "<b></b><a href='https://pl.wikipedia.org/wiki/Irena_Szumiel'>Irena Szumiel</a>| University of Warsaw  (1960-1965) </b><br> From 1960 to 1968, she worked at the Department of Biochemistry at the University of Warsaw, then became a research fellow at the Institute of Nuclear Research , and in 1982 the Institute of Nuclear Chemistry and Technology established on its basis.<img src='images/universityofwarsaw.JPG' alt='warsaw' width='350px'/>"
+    var customStoney2 = "<b></b><a href='https://en.wikipedia.org/wiki/Florence_Stoney'>Florence Stoney</a> | London School of Medicine for Women (1895-1898) </b><br> She attended the Royal College of Science and, since women in Ireland were unable to study medicine, moved to London to study at the London School of Medicine for Women. She obtained her MBBS with honours in 1895 and a Doctor of Medicine in 1898. <img src='images/LondonSchoolofMedicineForWomen.jpg' alt='lsmw' width='350px'/>"
+    var customSzumiel2 = "<b></b><a href='https://pl.wikipedia.org/wiki/Irena_Szumiel'>Irena Szumiel</a>| Birth Place <br>Irena Szumiel was born 10 February, 1936 in Warsaw, Poland <img src='images/warsaw.jpg' alt='warsaw2' width='350px'/>"
+   var customFranklin1 = "<b></b><a href='https://en.wikipedia.org/wiki/Rosalind_Franklin'>Rosalind Franklin</a>|Birth Place</b><br> Rosalind Franklin was born 25 July 1920 in Notting Hill, London<img src='images/notting hill.jpg' alt='nottinghill' width='350px'/>"
+   var customFranklin2 = "<b></b><a href='https://en.wikipedia.org/wiki/Rosalind_Franklin'>Rosalind Franklin</a>| King's Cross College, London (1951) </b><br> She became a research associate at King's College London in 1951 and worked on X-ray diffraction studies, which would eventually facilitate the double helix theory of the DNA <img src='images/kingscollege.jpg' alt='king' width='350px'/>"
+  var customGleditsh1 = "<b></b><a href='https://en.wikipedia.org/wiki/Ellen_Gleditsch'>Ellen Gleditsch</a> | Birth Place</b><br>  Ellen Gleditsh was born 29 December 1879 in Mandal, Norway<img src='images/mandal.JPG' alt='mandal' width='350px'/>"
+  var customGleditsh2 = "<b></b><a href='https://en.wikipedia.org/wiki/Ellen_Gleditsch'>Ellen Gleditsch</a> | Sorbonne (1905) </b><br> She Studied at the Sorbonne and work in Marie Curie's laboratory from 1907 to 1912 <img src='images/Sorbonne.jpg' alt='sorbonne' width='350px'/>"
+   var customMeitner1 = "<b</b><a href='https://en.wikipedia.org/wiki/Lise_Meitner'>Lise Meitner</a>| Birth Place</b><br> Elise Meitner was born 7 November 1878 in Leopoldstadt, Vienna <img src='images/LMBirthplaceVienna.jpeg' alt='lmbv' width='350px'/>"
+  var customMeitner2 = "<b></b><a href='https://en.wikipedia.org/wiki/Lise_Meitner'>Lise Meitner</a>| University of Vienna (1905) </b><br> Meitner became the second woman to receive her doctorate in Physics at the University in 1905 <img src='images/universityofv.jpg' alt='lmbv' width='350px'/>"
+  var customMeitner3 = "<b></b><a href='https://en.wikipedia.org/wiki/Lise_Meitner'>Lise Meitner</a>| Humboldt University of Berlin (1905) </b><br> Moving to the university formerly known as Friedrich Wilhelm University in 1907, Meitner met Albert Einstein, Max Planck, and Otto Hahn, with whom she would collaborate with greatly in the future <img src='images/HumboldtUniversity1900.jpg' alt='h1990u' width='350px'/>" 
+  var customLubinska1 = "<b></b><a href='https://en.wikipedia.org/wiki/Liliana_Lubi%C5%84ska'>Liliana Lubinska</a>| Birth Place </b><br> Luliana Lubinska  was born 14 October 1904 in Łódź, Poland <img src='images/Łódź.jpg' alt='h1990u' width='350px'/>" 
+  var customLubinska2 = "<b></b><a href='https://en.wikipedia.org/wiki/Liliana_Lubi%C5%84ska'>Liliana Lubinska</a>| University of Warsaw (1923) </b><br> Lubińska entered the University of Warsaw to study biology in 1923, but a year later she transferred to the University of Paris, Sorbonne to continue her study of biological sciences <img src='images/universityofwarsaw.JPG' alt='lmbv' width='350px'/>"
+ var customMcurie1 = "<b></b><a href='https://en.wikipedia.org/wiki/Marie_Curie'>Marie Curie</a>| Birth Place </b><br> Marie Curie was born 7 November 1867 in Warsaw, Poland (then Warsaw, Congress of Poland, Russian Empire <img src='images/MRC.JPG' alt='warsaw3' width='350px'/>" 
+  var customMcurie2 = "<b></b><a href='https://en.wikipedia.org/wiki/Marie_Curie'>Marie Curie</a> ESPCI Paris</b><br> A shed nex to the School of Physics and Chemistry was where the Curies conducted a majority of their research. Here, Marie Curie conducted many systematic studies, including one in which she discovered that the element thorium was also radioactive <img src='images/ESPCIParis.jpg' alt='paris' width='350px'/>" 
+   var customIcurie1 = "<b></b><a href='https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/'>Irène Joliot-Curie</a>| Birth Place </b><br> Birth Place</b><br> Irène Joliot-Curie was born 12 September 1897 in Paris, France <img src='images/eiffel-tower-paris-p.jpg' alt='h1990u' width='350px'/>" 
+    var customIcurie2 = "<b></b><a href='https://www.nobelprize.org/prizes/chemistry/1935/joliot-curie/biographical/'>Irène Joliot-Curie</a>| Curie Institute</b><br>Joliot-Curie studied at the Radium Institute, built after her parents, after World War I. Here, she received her PhD in Science after completing her thesis about thesis the alpha decay of polonium. Here, she also conducted a lot of her future research, including discovering artificial radioactivity, alongside her husband, Jean Frédéric Joliot-Curie. This discovery led to the Nobel Prize Chemistry in 1935 <img src='images/CurieInstitute1919_IreneandMarie.jpg' alt='mandi' width='350px'/>" 
+  
+  
+  
+  
+  
+  
+    /* Display a blue point marker with pop-up text */
+/*Irène Joliot-Curie*/
+  L.marker([48.8566, 2.3522], {icon: houseIcon}).addTo(map)
+  .bindPopup(customIcurie1,customOptions);
+  L.marker([48.843333, 2.344167], {icon: boneIcon}).addTo(map)
+  .bindPopup(customIcurie2,customOptions);
+             /*Marie Skłodowska Curie*/
+L.marker([52.2297, 21.0122], {icon: houseIcon}).addTo(map)
+  .bindPopup(customMcurie1,customOptions);
+L.marker ([48.841389, 2.346944], {icon: boneIcon}).addTo(map)
+  .bindPopup(customMcurie2,customOptions);
+/*Lise Meitner*/
+L.marker([48.2172, 16.3912], {icon: houseIcon}).addTo(map)
+  .bindPopup(customMeitner1,customOptions);
+L.marker([48.2132, 16.3601], {icon: boneIcon}).addTo(map)
+  .bindPopup(customMeitner2,customOptions);
+L.marker([52.518056, 13.393333], {icon: boneIcon}).addTo(map)
+  .bindPopup(customMeitner3,customOptions);
+  
+/*Liliana Lubinska*/
+  L.marker([51.4637, 19.2717], {icon: houseIcon}).addTo(map)
+  .bindPopup(customLubinska1,customOptions);
+  L.marker([52.2403, 21.0186], {icon: boneIcon}).addTo(map)
+  .bindPopup(customLubinska2,customOptions);
+    
+      /*Florence Stoney*/
+  L.marker([53.3498, -6.2603], {icon: houseIcon}).addTo(map)
+  .bindPopup(customStoney1,customOptions);
+  L.marker([51.5256, -0.1233], {icon: boneIcon}).addTo(map)
+  .bindPopup(customStoney2,customOptions);
+  /*Ellen Gleditsh*/
+  L.marker([57.8807, 7.4364], {icon: houseIcon}).addTo(map)
+  .bindPopup(customGleditsh1,customOptions);
+  L.marker([48.5055, 2.2036], {icon: boneIcon}).addTo(map)
+  .bindPopup(customGleditsh2,customOptions)
+  /*Irena Szumiel*/
+  L.marker([52.2297, 21.0185], {icon: houseIcon}).addTo(map)
+  .bindPopup(customSzumiel2,customOptions);
+  L.marker([52.1425, 21.0109], {icon: boneIcon}).addTo(map)
+  .bindPopup(customSzumiel1,customOptions);
+  
+  /*Rosalind Franklin*/
+  L.marker([51.3026, -0.0739], {icon: houseIcon}).addTo(map)
+  .bindPopup(customFranklin1,customOptions);
+  L.marker([51.5347, 0.1246], {icon: boneIcon}).addTo(map)
+  .bindPopup(customFranklin2,customOptions);
+  /* Upload Latitude/Longitude markers from data.csv file, show Title in pop-up, and override initial center and zoom to fit all in map */
+  // var customLayer = L.geoJson(null, {
+  //  onEachFeature: function(feature, layer) {
+  //    layer.bindPopup(feature.properties.Title);
+  //  }
+  // });
+  // var runLayer = omnivore.csv('data.csv', null, customLayer)
+  // .on('ready', function() {
+  //  map.fitBounds(runLayer.getBounds());
+  // }).addTo(map);
+  // controlLayers.addOverlay(customLayer, 'Markers from data.csv');
+  </script>
+</body>
+</html>
