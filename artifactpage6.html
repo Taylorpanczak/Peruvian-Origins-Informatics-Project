@@ -22,14 +22,35 @@
     <link href="css/portfolio-item.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  body {
-  font-family: "Lato", sans-serif;
-    overflow: hidden;
+          body {
+            overflow: hidden;
             margin: 0;
             padding: 0;
             background: hsl(0, 0%, 10%);
-}
-
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        .left,
+        .right {
+            position: absolute;
+            color: #fff;
+            font-family: Geneva, sans-serif;
+        }
+        .left {
+            bottom: 1em;
+            left: 1em;
+            text-align: left;
+        }
+        .right {
+            top: 0;
+            right: 0;
+            text-align: right;
+        }
+        a {
+            color: #f58231;
+        
 .sidenav {
   height: 650x;
   width: 330px;
@@ -245,19 +266,10 @@
             renderer.render(scene, camera);
         }
     </script>
-</script>
+
         
 
-    <!-- Footer -->
-    <footer>
-                                                                                                                                                                                          
-<div id="footer" align="bottom">
-  <div id="footer2" align="bottom">
-    <p class="centered"><img src="images/msu.jpg" alt="" height="100px" width="100px"></p>
-    </div>
-   
-</div>
-    </footer>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
