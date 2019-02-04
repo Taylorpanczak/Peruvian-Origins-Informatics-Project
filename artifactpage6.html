@@ -188,7 +188,7 @@
                 var objLoader = new THREE.OBJLoader();
                 objLoader.setMaterials(materials);
                 objLoader.setPath('assets/');
-                objLoader.load("female-croupier-2013-03-26.obj", function(model) {
+                objLoader.load('female-croupier-2013-03-26.obj', function(model) {
     model.traverse(function(child) {
         if (child instanceof THREE.Mesh) {
             child.material.color = 0xffb830;
