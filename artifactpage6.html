@@ -172,10 +172,10 @@
             document.body.appendChild(container);
             /* Camera */
             camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 1, 500);
-            camera.position.z = 1;
+            camera.position.z = 3;
             /* Scene */
             scene = new THREE.Scene();
-            lighting = true;
+            lighting = false;
             ambient = new THREE.AmbientLight(0xffffff, 1.0);
             scene.add(ambient);
             keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
