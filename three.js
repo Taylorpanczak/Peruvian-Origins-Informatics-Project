@@ -22040,8 +22040,8 @@ THREE.Texture.prototype = {
 			} else {
 
 				canvas = document.createElement( 'canvas' );
-				canvas.width = image.width;
-				canvas.height = image.height;
+				canvas.width = 900px;
+				canvas.height = 900px;
 
 				canvas.getContext( '2d' ).drawImage( image, 0, 0, image.width, image.height );
 
