@@ -220,13 +220,13 @@
         function onWindowResize() {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(300px, 300px);
         }
         function onKeyboardEvent(e) {
             if (e.code === 'KeyL') {
                 lighting = !lighting;
                 if (lighting) {
-                    ambient.intensity = 0.25;
+                    ambient.intensity = 1.25;
                     scene.add(keyLight);
                     scene.add(fillLight);
                     scene.add(backLight);
