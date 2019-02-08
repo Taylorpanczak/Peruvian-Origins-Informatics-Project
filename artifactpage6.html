@@ -165,6 +165,9 @@
       
         init();
         animate();
+      container = document.getElementById('container');
+renderer.setSize($(container).width(300px), $(container).height(300px));
+container.appendChild(renderer.domElement);
       
         function init() {
             container = document.createElement('div');
