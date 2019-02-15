@@ -193,10 +193,39 @@
                 objLoader.setPath('assets/');
                 objLoader.load('try3.obj', function (object) {
                     scene.add(object);
+                   boundingbox = new THREE.BoundingBoxHelper(object, 0xff0000);
+
+    boundingbox.update();
+
+    sceneRadiusForCamera = Math.max(
+        boundingbox.box.max.y - boundingbox.box.min.y,
+        boundingbox.box.max.z - boundingbox.box.min.z,
+        boundingbox.box.max.x - boundingbox.box.min.x
+    )/2 * (1 + Math.sqrt(5)) ; // golden number to beautify display
                 });
-              
+              function showFront() {
+if (objectCopy !== undefined) objectCopy.rotation.z =  0;
+    controls.reset();
+    camera.position.z = 0;
+    camera.position.y = 0;
+    camera.position.x = sceneRadiusForCamera;
+    camera.lookAt(scene.position);
+}
             });
-          
+          function resetObjectPosition(){
+    boundingbox.update();
+
+    size.x = boundingbox.box.max.x - boundingbox.box.min.x;
+    size.y = boundingbox.box.max.y - boundingbox.box.min.y;
+    size.z = boundingbox.box.max.z - boundingbox.box.min.z;
+
+    // Repositioning object
+    objectCopy.position.x = -boundingbox.box.min.x - size.x/2;
+    objectCopy.position.y = -boundingbox.box.min.y - size.y/2;
+    objectCopy.position.z = -boundingbox.box.min.z - size.z/2;
+    boundingbox.update();
+    if (objectCopy !== undefined) objectCopy.rotation.z =  0;
+          }
 
             /* Renderer */
             renderer = new THREE.WebGLRenderer();
