@@ -188,23 +188,11 @@
                 materials.preload();
                 /*materials.materials.default.map.magFilter = THREE.NearestFilter;*/
                 /*materials.materials.default.map.minFilter = THREE.LinearFilter;*/
-                                var objLoader = new THREE.OBJLoader();
-      objLoader.setPath('assets/');
-      objLoader.load('try3.obj', function (object) {
-
-
-            object.traverse( function ( child ) {
-
-                if ( child instanceof THREE.Mesh ) {
-
-                   child.material = material;
-                   child.geometry.center();
-
-                }
-
-        } );
-       scene.add(object);
-                   });
+              var objLoader = new THREE.OBJLoader();
+                objLoader.setMaterials(materials);
+                objLoader.setPath('assets/');
+                objLoader.load('female-croupier-2013-03-26.obj', function (object) {
+                    scene.add(object);
             });
 
 
