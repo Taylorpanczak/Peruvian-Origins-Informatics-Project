@@ -209,8 +209,8 @@ mtlLoader.load('try3.mtl', function (materials) {
             renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
             container.appendChild(renderer.domElement);
             /* Controls */
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-          controls.target.set( 100, 100, 100 );
+            controls = new THREE.OrbitControls(camera, renderer.domElement)
+          controls.target.set( 0, 0, 0 );
             controls.enableDamping = true;
             controls.dampingFactor = 0.25;
             controls.enableZoom = true;
