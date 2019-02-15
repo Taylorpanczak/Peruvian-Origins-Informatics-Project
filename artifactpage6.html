@@ -239,10 +239,18 @@ mtlLoader.load('try3.mtl', function (materials) {
                 }
             }
         }
+      var box = new THREE.Box3().setFromObject( mesh );
+box.center( mesh.position ); // this re-sets the mesh position
+mesh.position.multiplyScalar( - 1 );
+      var pivot = new THREE.Group();
+scene.add( pivot );
+pivot.add( mesh );
+      
         function animate() {
             requestAnimationFrame(animate);
             controls.update();
             render();
+          pivot.rotation.y += 0.01;
         }
         function render() {
             renderer.render(scene, camera);
