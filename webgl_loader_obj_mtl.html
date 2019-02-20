@@ -30,11 +30,11 @@
 		<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> - OBJLoader + MTLLoader
 		</div>
 
-		<script src="../build/three.js"></script>
+		<script src="three.js"></script>
 
-		<script src="js/loaders/DDSLoader.js"></script>
-		<script src="js/loaders/MTLLoader.js"></script>
-		<script src="js/loaders/OBJLoader.js"></script>
+		<script src="DDSLoader.js"></script>
+		<script src="MTLLoader.js"></script>
+		<script src="OBJLoader.js"></script>
 
 		<script src="js/libs/stats.min.js"></script>
 
@@ -91,14 +91,14 @@
 				THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
 				new THREE.MTLLoader()
-					.setPath( 'models/obj/male02/' )
+					.setPath( 'assets/' )
 					.load( 'male02_dds.mtl', function ( materials ) {
 
 						materials.preload();
 
 						new THREE.OBJLoader()
 							.setMaterials( materials )
-							.setPath( 'models/obj/male02/' )
+							.setPath( 'assets/' )
 							.load( 'male02.obj', function ( object ) {
 
 								object.position.y = - 95;
