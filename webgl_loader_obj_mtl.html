@@ -90,16 +90,16 @@
 
 				THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
-				new THREE.MTLLoader()
-					.setPath( 'assets/' );
-					.load( 'male02_dds.mtl', function ( materials ) {
+				var mtlLoader = new THREE.MTLLoader();
+					mtlLoader.setPath( 'assets/' );
+					mtlLoader.load( 'male02_dds.mtl', function (materials) {
 
 						materials.preload();
 
-						new THREE.OBJLoader()
-							.setMaterials( materials )
-							.setPath( 'assets/' );
-							.load( 'male02.obj', function ( object ) {
+						var objLoader = new THREE.OBJLoader();
+							objLoader.setMaterials(materials);
+							objLoader.setPath( 'assets/' );
+							objLoader.load( 'male02.obj', function ( object ) {
 
 								object.position.y = - 95;
 								scene.add( object );
