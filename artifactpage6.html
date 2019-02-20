@@ -188,7 +188,7 @@ camera.position.z = 3;
             var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setBaseUrl('assets/');
 mtlLoader.setPath('assets/');
-mtlLoader.load('try3.mtl', function (materials) {
+mtlLoader.load('try4.mtl', function (materials) {
 
     materials.preload();
 
@@ -198,7 +198,7 @@ mtlLoader.load('try3.mtl', function (materials) {
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
     objLoader.setPath('assets/');
-    objLoader.load('try3.obj', function (object) {
+    objLoader.load('try4.obj', function (object) {
 
         scene.add(object);
   
