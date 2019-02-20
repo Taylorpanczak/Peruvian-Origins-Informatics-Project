@@ -92,14 +92,14 @@
 
 				var mtlLoader = new THREE.MTLLoader();
 					mtlLoader.setPath( 'assets/' );
-					mtlLoader.load( 'test3.mtl', function (materials) {
+					mtlLoader.load( 'male02.mtl', function (materials) {
 
 						materials.preload();
 
 						var objLoader = new THREE.OBJLoader();
 							objLoader.setMaterials(materials);
 							objLoader.setPath( 'assets/' );
-							objLoader.load( 'test3.obj', function ( object ) {
+							objLoader.load( 'male02.obj', function ( object ) {
 
 								object.position.y = - 95;
 								scene.add( object );
