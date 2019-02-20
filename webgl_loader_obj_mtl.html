@@ -87,8 +87,10 @@
 				};
 
 			
-
+var onError = function () { };
+				THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 				var mtlLoader = new THREE.MTLLoader();
+				
 				        mtlLoader.setBaseUrl('assets/');
 					mtlLoader.setPath( 'assets/' );
 					mtlLoader.load( 'male02.mtl', function (materials) {
@@ -102,7 +104,7 @@
 
 								object.position.y = - 95;
 								scene.add( object );
-
+	}, onProgress, onError );
 					
 
 					} );
