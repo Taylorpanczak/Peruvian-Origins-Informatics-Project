@@ -86,9 +86,7 @@
 
 				};
 
-				var onError = function () { };
-
-				THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+			
 
 				var mtlLoader = new THREE.MTLLoader();
 				        mtlLoader.setBaseUrl('assets/');
@@ -105,7 +103,7 @@
 								object.position.y = - 95;
 								scene.add( object );
 
-							}, onProgress, onError );
+					
 
 					} );
 
