@@ -202,7 +202,7 @@ mtlLoader.load('try3.mtl', function (materials) {
 
         scene.add(object);
 
-object.position.set( 0, 200, 0 );
+object.position.set( 90, 490, 990 );
     });
 
 });
@@ -243,12 +243,7 @@ object.position.set( 0, 200, 0 );
                 }
             }
         }
-      var box = new THREE.Box3().setFromObject( mesh );
-box.center( mesh.position ); // this re-sets the mesh position
-mesh.position.multiplyScalar( - 1 );
-      var pivot = new THREE.Group();
-scene.add( pivot );
-pivot.add( mesh );
+      v
       
         function animate() {
             requestAnimationFrame(animate);
