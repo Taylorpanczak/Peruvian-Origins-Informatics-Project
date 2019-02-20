@@ -1,157 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<title>three.js webgl - transform controls</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				margin: 0px;
+				background-color: #000000;
+				color: #fff;
+				font-family:Monospace;
+				text-align: center;
+				font-size: 15px;
+				line-height: 30px;
+				overflow: hidden;
+			}
+			
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 15px;
+				z-index:100;
+				box-sizing: border-box;
+			}
+			
+			a {
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+		<div id="info">
+			<a href="javascript:control.setMode( 'translate' );">"W" translate</a> |
+			<a href="javascript:control.setMode( 'rotate' );">"E" rotate</a> |
+			<a href="javascript:control.setMode( 'scale' );">"R" scale</a> |
+			<a href="javascript:control.setSize( control.size + 0.1 );">"+" increase size</a> |
+			<a href="javascript:control.setSize( Math.max( control.size - 0.1, 0.1 ) );">"-" decrease size</a><br />
+			<a href="javascript:control.setSpace( control.space === 'local' ? 'world' : 'local' );">"Q" toggle world/local space</a> | Hold "Ctrl" down to snap to grid<br />
+			<a href="javascript:control.showX = !control.showX">"X" toggle X</a> |
+			<a href="javascript:control.showY = !control.showY">"Y" toggle Y</a> |
+			<a href="javascript:control.showZ = !control.showZ">"Z" toggle Z</a> |
+			<a href="javascript:control.enabled = !control.enabled">"Spacebar" toggle enabled</a><br />
+		</div>
 
-    <script src="three.js"></script>
-    <script src="Detector.js"></script>
-    <script src="OrbitControls.js"></script>
-    <script src="OBJLoader.js"></script>
-    <script src="MTLLoader.js"></script>
-  <script src="TransformControls.js"></script>
+		<script src="three.js"></script>
+		<script src="OrbitControls.js"></script>
+		<script src="TransformControls.js"></script>
 
-    <title>Peruvian Origns Informatics Project</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/portfolio-item.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-          body {
-           
-            margin: 0;
-            padding: 0;
-            background: hsl(0, 0%, 10%);
-            overflow: hidden;
-       
-        
-.sidenav {
-  height: 650x;
-  width: 330px;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  overflow-x: hidden;
-  padding-top: 0px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:absolute {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-  <style>
-  body {
-  font-family: "Lato", sans-serif;
-}
-.container {
-  height: 605px;
-  width: 380px;
-  position: absolute;
-            }
-            
-.sidenavright {
-  height: 605px;
-  width: 380px;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-    background-color: transparent;
-  overflow-x: hidden;
-  padding-top: 0px;
-}
-
-.sidenavright a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenavright a:absolute {
-  color: #f1f1f1;
-}
-
-.main2 {
-  margin-right: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-}
-</style>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Peruvian Origns Project</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="map.html">Map</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-   
-      
-      <!-- Portfolio Item Heading -->
-      <h1 class="my-4"><center>Artifact Page
-        <small><center></center></small>
-        </center></h1>
-
-
-    <script>
-       			var camera, scene, renderer, control, orbit;
+		<script>
+			var camera, scene, renderer, control, orbit;
 			init();
 			render();
 			function init() {
@@ -244,16 +142,6 @@
 				renderer.render( scene, camera );
 			}
 		</script>
-    </script>
-      </script>
-        
 
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
-
+	</body>
 </html>
