@@ -140,7 +140,7 @@
         </div>
       </div>
     </nav>
-
+    <canvas id="c" width="400" height="300"></canvas>
    
       
       <!-- Portfolio Item Heading -->
@@ -166,6 +166,7 @@
         function init() {
             container = document.createElement('div');
             document.body.appendChild(container);
+          
             /* Camera */
 camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 1, 1000 );
 camera.position.z = 3;
