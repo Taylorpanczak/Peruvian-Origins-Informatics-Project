@@ -147,13 +147,13 @@
       <h1 class="my-4"><center>Artifact Page
         <small><center></center></small>
         </center></h1>
-         <canvas id="canvasID"></canvas>
+
 
     <script>
         if (!Detector.webgl) {
             Detector.addGetWebGLMessage();
         }
-        var canvas = document.getElementById("canvasID");
+        var container;
         var camera, controls, scene, renderer;
         var lighting, ambient, keyLight, fillLight, backLight;
         var windowHalfX = window.innerWidth / 2;
@@ -164,7 +164,7 @@
         animate();
       
         function init() {
-            canvas = document.createElement('div');
+            container = document.createElement('div');
             document.body.appendChild(container);
           
             /* Camera */
@@ -208,11 +208,11 @@ mtlLoader.load('try4.mtl', function (materials) {
 
 });
             /* Renderer */
-            renderer = new THREE.WebGLRenderer({ canvas: canvas });
+            renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
             renderer.setSize(window.innerWidth * 0.8, window.innerHeight *0.8);
             renderer.setClearColor(new THREE.Color("hsl(100, 100%, 50%)"));
-            document.getElementById('test').appendChild( renderer.domElement );
+            container.appendChild(renderer.domElement);
             /* Controls */
             controls = new THREE.OrbitControls(camera, renderer.domElement)
 
