@@ -256,8 +256,8 @@ mtlLoader.load('try4.mtl', function (materials) {
             /* Renderer */
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth * 0.8, window.innerHeight *0.8);
-            renderer.setClearColor(new THREE.Color("hsl(100, 100%, 50%)"));
+            renderer.setSize(window.innerWidth , window.innerHeight);
+            renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
             container.appendChild(renderer.domElement);
             /* Controls */
             controls = new THREE.OrbitControls(camera, renderer.domElement)
@@ -301,8 +301,7 @@ mtlLoader.load('try4.mtl', function (materials) {
         function render() {
             renderer.render(scene, camera);
         }
-    </script>
-    const vector = new THREE.Vector3(250, 250, 250);
+        const vector = new THREE.Vector3(250, 250, 250);
 const canvas = renderer.domElement; // `renderer` is a THREE.WebGLRenderer
 
 vector.project(camera); // `camera` is a THREE.PerspectiveCamera
@@ -360,6 +359,7 @@ spriteBehindObject = spriteDistance > meshDistance;
 
 sprite.material.opacity = spriteBehindObject ? 0.25 : 1;
 annotation.style.opacity = spriteBehindObject ? 0.25 : 1;
+    </script>
       </script>
         
 
