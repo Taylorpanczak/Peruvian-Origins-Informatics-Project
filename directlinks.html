@@ -131,17 +131,17 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
-  .center1 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 250px;
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
 }
-  .left1 {
-  display: block;
-  margin-left: 0px;
-  margin-right: auto;
-  width: 250px;
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 </style>
   </head>
@@ -183,19 +183,17 @@ img {vertical-align: middle;}
         </center></h1>
 
 
-      </div>
-  <div> 
-    <p><Cuncaicha</p>
-       <a href="artifactpageCuncaicha.html">
-         <img src="images/fishtail.gif" alt="" height="200px" width="250px">
-      </a>
+      <div class="row">
+  <div class="column">
+    <img src="images/fishtail.gif" alt="Snow" style="width:250px">
   </div>
-  <div>
-    <p>Cuncaicha Workshop</p>
-       <a href="artifactpageWorkshop.html">
-         <img src="images/fishtail.gif" alt="" height="200px" width="250px">
-      </a>
-      </div>
+  <div class="column">
+    <img src="images/fishtail.gif" alt="Forest" style="width:250px">
+  </div>
+  <div class="column">
+    <img src="images/fishtail.gif" alt="Mountains" style="width:250px">
+  </div>
+</div> 
         
       <!-- /.row -->
 
