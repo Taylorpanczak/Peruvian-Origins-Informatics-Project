@@ -55,12 +55,14 @@ body {
   width: 33%;
   padding: 5px;
   align-content: center;
+       bottom: 1px;
 }
   /* Clear floats after image containers */
 .row::after {
   content: "";
   clear: both;
   display: table
+    bottom: 1px;
     }
  <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -98,18 +100,6 @@ body {
       </div>
     </nav>
 <div id="container">
-   <div id="header"></div>
-   <div id="body">
-  <h1 class="my-4"><center>Map of sites 
-        <small><center>from research project</center></small>
-        </center></h1>
-          <p><center>The following map shows various sites from the Pampa Colorada region and the Pucuncho basin. Each site fishtail projectile point will 
-            link you to an artifact page which has a manipulatable 3D model of a projectile point from that site. "Artifact pages" in the navigation bar provides direct links to all archaeological sites repersented on the map below</center></p>
-</div>
-
-
-  
-    <div id="map">
   <div class="row">
   <div class="column text-center">
     <a href="http://anthropology.msu.edu">
@@ -128,7 +118,18 @@ body {
     <img src="images/finalLogo11.png" alt="Mountains" style="width:250px">
     </a>
 </div>  
-</div></div>
+   <div id="header"></div>
+   <div id="body">
+  <h1 class="my-4"><center>Map of sites 
+        <small><center>from research project</center></small>
+        </center></h1>
+          <p><center>The following map shows various sites from the Pampa Colorada region and the Pucuncho basin. Each site fishtail projectile point will 
+            link you to an artifact page which has a manipulatable 3D model of a projectile point from that site. "Artifact pages" in the navigation bar provides direct links to all archaeological sites repersented on the map below</center></p>
+</div>
+
+
+  
+    <div id="map"></div>
   <!-- Create the map content with JavaScript (.js) -->
   <script>
   /* Set up the map with initial center and zoom level */
