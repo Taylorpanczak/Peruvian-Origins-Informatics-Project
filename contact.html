@@ -19,6 +19,11 @@
   body {
   font-family: "Lato", sans-serif;
 }
+  /* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 </style>
   </head>
   <body>
@@ -83,11 +88,24 @@
     <!-- Footer -->
     <footer>
                                                                                                                                                                                           
-<div id="footer" align="bottom">
-    <p class="centered"><img src="images/msu.jpg" alt="" height="100px" width="100px"></p>
-    <p class="left"><img src="images/finalLogo11.png" alt="" height="100px" width="300px"></p>
-    <p class="right"><img src="images/NSF.jpg" alt="" height="100px" width="100px"></p>
-    </div>
+   <div class="row">
+  <div class="column text-center">
+    <a href="http://anthropology.msu.edu">
+    <img src="images/msu.jpg" alt="Snow" style="width:250px">
+    </a>
+  </div>
+    
+  <div class="column text-center">
+    <a href="https://www.nsf.gov/">
+    <img src="images/NSF.jpg" alt="Forest" style="width:250px">
+    </a>
+    
+  </div>
+  <div class="column text-center">
+    <a href="http://chi.anthropology.msu.edu">
+    <img src="images/finalLogo11.png" alt="Mountains" style="width:250px">
+    </a>
+</div>
    
 </div>
     </footer>
