@@ -48,7 +48,11 @@ body {
    position:fixed;
    bottom:0;
    width:100%;
-   height:120px;   /* Height of the footer */
+   height:120px; 
+  content: "";
+  clear: both;
+  display: table
+    bottom: 0;/* Height of the footer */
 }
   #map { position:fixed; top:350px; bottom:350px; right:100px; left:100px; height: 60%; width: 90%;}
     .column {
@@ -57,12 +61,7 @@ body {
   align-content: center;
 }
   /* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table
-    bottom: 0;
-    }
+
     div.a {
   text-align: center;
 }
@@ -245,7 +244,6 @@ L.marker([-16.01, -73.32], {icon: boneIcon}).addTo(map)
 </body>
  <footer>
          <div id="footer">                                                                                                                                                                                    
-   <div class="row">
   <div class="column text-center">
     <a href="http://anthropology.msu.edu">
     <img src="images/msu.jpg" alt="Snow" align="bottom" style="width:250px">
