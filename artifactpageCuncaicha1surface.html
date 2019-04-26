@@ -186,17 +186,48 @@
     position: absolute;
     z-index: -1;
 }
+  .bottom-right {
+  position: absolute;
+  bottom: 44px;
+  right: 43px;
+  font-size: 16px;
+  }
+  .bottom-left {
+  position: absolute;
+  bottom: 44px;
+  left: 43px;
+    font-size: 16px;
+  }
+     .column {
+  width: 33%;
+  padding: 5px;
+  align-content: center;
+}
+  /* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table
+  }
 </style>
   </head>
   <div class="annotation">
     <p><strong>Cube</strong></p>
     <p>In geometry, a cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each vertex.</p>
+    <a href="artifactpage300.html">
+    <img src="images/right.png" align="right" alt="Mountains" style="width:100px">
+    </a>
+<div class="bottom-right"><a href="artifactpage300.html">PC-300</a></div>
 </div>
 <canvas id="number" width="64" height="64"></canvas>
   <body>
     <div class="annotation2">
     <p><strong>Cube</strong></p>
     <p>In geometry, a cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each vertex.</p>
+      <a href="artifactpageworkshop.html">
+    <img src="images/left.png" alt="Mountains" style="width:100px">
+    </a>
+<div class="bottom-left"><a href="artifactpageworkshop.html">Workshop</a></div>
 </div>
 <canvas id="number" width="64" height="64"></canvas>
   <body>
@@ -231,7 +262,7 @@
    
       
       <!-- Portfolio Item Heading -->
-      <h1 class="my-4"><center>Artifact Page
+      <h1 class="my-4"><center>Artifact Page: Cuncaicha Workshop
         <small><center></center></small>
         </center></h1>
 
@@ -355,8 +386,25 @@ mtlLoader.load('as511.1real.mtl', function (materials) {
   </body>
 <footer>
                                                                                                                                                                                           
-<div id="footer" align="bottom">
-  <div id="footer2" align="bottom">
-    <p class="centered"><img src="images/msu.jpg" alt="" height="100px" width="100px"></p>
-    </div>
+   <div class="row">
+  <div class="column text-center">
+    <a href="http://anthropology.msu.edu">
+    <img src="images/msu.jpg" alt="Snow" style="width:100px">
+    </a>
+  </div>
+    
+  <div class="column text-center">
+    <a href="https://www.nsf.gov/">
+    <img src="images/NSF.jpg" alt="Forest" style="width:100px">
+    </a>
+    
+  </div>
+  <div class="column text-center">
+    <a href="http://chi.anthropology.msu.edu">
+    <img src="images/finalLogo11.png" alt="Mountains" style="width:250px">
+    </a>
+</div>
+   
+</div>
+</footer>
 </html>
