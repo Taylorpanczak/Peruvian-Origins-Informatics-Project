@@ -121,8 +121,8 @@
     top: 0;
     left: 0;
     z-index: 1;
-    margin-left: 1420px;
-    margin-top: 500px;
+    margin-left: 25%;
+    margin-top: 25%;
     padding: 1em;
     width: 200px;
     color: #fff;
@@ -156,8 +156,8 @@
     top: 0;
     left: 0;
     z-index: 1;
-    margin-left: 300px;
-    margin-top: 500px;
+    margin-right: 25%;
+    margin-top: 25%;
     padding: 1em;
     width: 200px;
     color: #fff;
@@ -309,7 +309,7 @@ camera.position.z = 3;
             var mtlLoader = new THREE.MTLLoader();
 mtlLoader.setBaseUrl('assets/');
 mtlLoader.setPath('assets/');
-mtlLoader.load('basket.mtl', function (materials) {
+mtlLoader.load('pc300real.mtl', function (materials) {
 
     materials.preload();
 
@@ -319,7 +319,7 @@ mtlLoader.load('basket.mtl', function (materials) {
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
     objLoader.setPath('assets/');
-    objLoader.load('basket.obj', function (object) {
+    objLoader.load('pc300real.obj', function (object) {
 
         scene.add(object);
   
