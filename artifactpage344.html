@@ -186,17 +186,48 @@
     position: absolute;
     z-index: -1;
 }
+  .bottom-right {
+  position: absolute;
+  bottom: 44px;
+  right: 43px;
+  font-size: 16px;
+  }
+  .bottom-left {
+  position: absolute;
+  bottom: 44px;
+  left: 43px;
+    font-size: 16px;
+  }
+     .column {
+  width: 33%;
+  padding: 5px;
+  align-content: center;
+}
+  /* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table
+  }
 </style>
   </head>
   <div class="annotation">
     <p><strong>Cube</strong></p>
     <p>In geometry, a cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each vertex.</p>
+    <a href="artifactpage425.html">
+    <img src="images/right.png" align="right" alt="Mountains" style="width:100px">
+    </a>
+<div class="bottom-right"><a href="artifactpage425.html">PC-425</a></div>
 </div>
 <canvas id="number" width="64" height="64"></canvas>
   <body>
     <div class="annotation2">
     <p><strong>Cube</strong></p>
     <p>In geometry, a cube is a three-dimensional solid object bounded by six square faces, facets or sides, with three meeting at each vertex.</p>
+      <a href="artifactpage343.html">
+    <img src="images/left.png" alt="Mountains" style="width:100px">
+    </a>
+<div class="bottom-left"><a href="artifactpage343.html">PC-343</a></div>
 </div>
 <canvas id="number" width="64" height="64"></canvas>
   <body>
